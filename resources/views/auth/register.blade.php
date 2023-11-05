@@ -67,13 +67,13 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Province') }}</label>
 
                             <div class="col-md-6">
-                                <select id="provinceSelect" name="province_id" class="form-control @error('province') is-invalid @enderror" required>
+                                <select id="provinceSelect" name="province_id" class="form-control @error('province_id') is-invalid @enderror" required>
                                     <option value="">{{ _('Select Province') }}</option>
                                     @foreach (\App\Models\Province::all() as $province)
                                     <option value="{{ $province->id }}">{{ $province->name }}</option>
                                     @endforeach
                                 </select>
-                                 @error('province')
+                                 @error('province_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -109,10 +109,10 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Division') }}</label>
 
                             <div class="col-md-6">
-                                <select id="divisionSelect" name="division_id" class="form-control @error('division') is-invalid @enderror" required>
+                                <select id="divisionSelect" name="division_id" class="form-control @error('division_id') is-invalid @enderror" required>
                                     <option value="">{{ _('Select Division') }}</option>
                                 </select>
-                                 @error('division')
+                                 @error('division_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

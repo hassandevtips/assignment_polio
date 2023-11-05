@@ -26,4 +26,5 @@ Route::get('/getDivisions/{provinceId}',[DivisionController::class,'getDivisions
 // Admin routes
 Route::group(['prefix' => 'admin','middleware' => ['userType:admin']], function() {
 Route::resource('provinces', ProvinceController::class);
+Route::resource('divisions', DivisionController::class);
 });

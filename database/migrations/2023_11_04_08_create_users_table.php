@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('user_type');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->unsignedBigInteger('province_id');
             $table->foreign('province_id')->references('id')->on('provinces');
             $table->unsignedBigInteger('division_id');

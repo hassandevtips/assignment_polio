@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +22,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/getDivisions/{provinceId}',[DivisionController::class,'getDivisions'])->name('getDivisions');
 
 // Admin routes
-Route::group(['prefix' => 'admin','middleware' => ['userType:admin']], function() {
+Route::group(['prefix' => 'admin','middleware' => ['userType:admin','auth']], function() {
 Route::resource('provinces', ProvinceController::class);
 Route::resource('divisions', DivisionController::class);
+Route::resource('users', UsersController::class);
 });

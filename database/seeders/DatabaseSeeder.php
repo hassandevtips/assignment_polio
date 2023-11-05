@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         UnionCouncilsSeeder::class,
         HouseholdsSeeder::class,
         HouseholdMembersSeeder::class,
+        UsersTableSeeder::class,
     ];
     /**
      * Seed the application's database.
